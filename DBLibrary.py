@@ -1,19 +1,16 @@
+from dotenv import load_dotenv
+import os
 import mysql.connector
 from mysql.connector import Error
 
-
-
-db_host = "localhost"
-db_user = "root"
-db_password = "arcadia89"
-db_name = "nlp_project"
+load_dotenv()
 
 DB_CONFIG = {
-    'host':"localhost",
-    'user':db_user,
-    'password':db_password,
-    'database':db_name,
-    'port':3306
+    'host':os.getenv("DB_HOST"),
+    'user':os.getenv("DB_USER"),
+    'password':os.getenv("DB_PASSWORD"),
+    'database':os.getenv("DB_NAME"),
+    'port':os.getenv("DB_PORT")
 }
 
 def create_connection():
