@@ -1,4 +1,4 @@
-# AIDataQuery 📊🤖
+# AIDataQuery 📊
 
 **AIDataQuery** is an innovative program powered by GPT-4, designed to streamline interaction with MySQL databases. With a simple user input, the program generates and executes MySQL queries on a generic database and returns the query results in a refined and user-friendly format.
 
