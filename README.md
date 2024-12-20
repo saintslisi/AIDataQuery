@@ -311,3 +311,60 @@ The following **test tables** have been used in the database:
    - Rating  
    - Operating Hours Information  
    - Price Range  
+
+## Issues and Solutions
+
+### Issues
+
+1. **Multi-query SELECT**  
+   When performing searches that involve multiple tables, the system generates multiple queries.  
+
+2. **Insertion with Records Containing Foreign Keys**  
+   During data insertion, the process must handle records with foreign keys and verify relationships between tables.  
+
+3. **Memory Management**  
+   Initial memory handling caused performance issues due to the storage of static messages and excessive data.  
+
+4. **Table and Field Descriptions**  
+   For optimal functionality, the database requires detailed descriptions of tables and fields.  
+
+---
+
+### Solutions
+
+1. **Multi-query SELECT**  
+   - The issue was resolved by modifying the function to manage multi-queries efficiently.  
+   - The generated queries are executed by the database, and their results are stored in a list.  
+   - This list is then passed to the model for processing.  
+
+2. **Insertion with Foreign Key Records**  
+   - Unlike other operations, insertion requires verifying that all non-NULL data is present and that foreign key relationships are valid.  
+   - This was resolved by:  
+     - Extracting all related tables.  
+     - Generating auxiliary SELECT queries using the LLM to find the correct foreign keys.  
+     - Passing these results to the LLM to generate and execute the final INSERT query.  
+
+3. **Improved Memory Management**  
+   - Initially, memory was overloaded with static messages embedded in the code.  
+   - The solution involved:  
+     - Storing only the user's initial input and the LLM's final output in memory.  
+     - Implementing a fixed sliding window with a LIFO structure for managing requests.  
+
+4. **Detailed Table and Field Descriptions**  
+   - The program now requires a well-designed MySQL database where every table and field is thoroughly commented.  
+   - Adding detailed descriptions ensures that every element is well-documented, improving both functionality and usability.  
+
+---
+## Python Libraries Used
+
+The following Python libraries were used in this project:
+
+| Library                | Version  |
+|------------------------|----------|
+| **mysql-connector**    | 2.2.9    |
+| **mysql-connector-python** | 8.1.0 |
+| **openai**             | 1.57.2   |
+| **pip**                | 24.3.1   |
+| **python-dotenv**      | 1.0.1    |
+| **requests**           | 2.32.3   |
+
