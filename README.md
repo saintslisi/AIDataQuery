@@ -249,3 +249,65 @@ During the tests, the model generated between 90% and 95% of correct queries. Ba
      Query executed without returning rows
      ```
 </details>
+
+## Test Tables of the Database
+
+The Test Database simulates a travel platform database.  
+It includes several tables with realistic fields.  
+Currently, approximately 25,000 test data entries have been inserted into the DB using a data generation program.  
+The data is realistic, although some entries may have inconsistencies.  
+
+The following **test tables** have been used in the database:
+
+1. **Planes:**  
+   Used to store information about specific planes and their associated airlines.
+
+2. **Flights** *(Relation to Planes):*  
+   Contains flight-related data such as:  
+   - Departure  
+   - Destination  
+   - Duration  
+   - Price  
+   - Flight Code  
+   - Departure Date  
+
+3. **Airports** *(Relation to Flights):*  
+   Includes data such as:  
+   - Airport IATA Code  
+   - City  
+   - Country  
+   - Continent  
+
+4. **Hotels:**  
+   Stores hotel information, including:  
+   - Name  
+   - Location  
+   - Number of Stars  
+   - Phone Number  
+   - Price Range  
+   - Amenities  
+
+5. **Rooms** *(Relation to Hotels):*  
+   This table contains information about the rooms available in the hotels listed in the previous table, including:  
+   - Hotel ID  
+   - Room Number  
+   - Type (e.g., single, double, etc.)  
+   - Price  
+   - Status  
+
+6. **Rental Vehicles:**  
+   Stores details about vehicles available for rent, such as:  
+   - Model  
+   - Brand  
+   - License Plate  
+   - Fuel Type  
+   - Type (e.g., car, van, etc.)  
+   - Daily Price  
+
+7. **Restaurants:**  
+   Provides information about a list of restaurants, including:  
+   - Name  
+   - Address  
+   - Rating  
+   - Operating Hours Information  
+   - Price Range  
